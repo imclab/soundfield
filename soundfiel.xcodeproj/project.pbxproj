@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		91A32C4714E6106B00B63453 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A32C4614E6106B00B63453 /* UIKit.framework */; };
+		91A32C4914E6106B00B63453 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A32C4814E6106B00B63453 /* Foundation.framework */; };
+		91A32C4B14E6106B00B63453 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A32C4A14E6106B00B63453 /* CoreGraphics.framework */; };
+		91A32C5114E6106B00B63453 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91A32C4F14E6106B00B63453 /* InfoPlist.strings */; };
+		91A32C5314E6106B00B63453 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A32C5214E6106B00B63453 /* main.m */; };
+		91A32C5714E6106B00B63453 /* SFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A32C5614E6106B00B63453 /* SFAppDelegate.m */; };
+		91A32C5A14E6106B00B63453 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A32C5814E6106B00B63453 /* MainStoryboard.storyboard */; };
+		91A32C5D14E6106B00B63453 /* SFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A32C5C14E6106B00B63453 /* SFViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		91A32C4214E6106B00B63453 /* soundfiel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundfiel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A32C4614E6106B00B63453 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		91A32C4814E6106B00B63453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		91A32C4A14E6106B00B63453 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		91A32C4E14E6106B00B63453 /* soundfiel-Info.plist */ = {isa = PBXFileReference; path = "soundfiel-Info.plist"; sourceTree = "<group>"; };
+		91A32C5014E6106B00B63453 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		91A32C5214E6106B00B63453 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		91A32C5414E6106B00B63453 /* soundfiel-Prefix.pch */ = {isa = PBXFileReference; path = "soundfiel-Prefix.pch"; sourceTree = "<group>"; };
+		91A32C5514E6106B00B63453 /* SFAppDelegate.h */ = {isa = PBXFileReference; path = SFAppDelegate.h; sourceTree = "<group>"; };
+		91A32C5614E6106B00B63453 /* SFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFAppDelegate.m; sourceTree = "<group>"; };
+		91A32C5914E6106B00B63453 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		91A32C5B14E6106B00B63453 /* SFViewController.h */ = {isa = PBXFileReference; path = SFViewController.h; sourceTree = "<group>"; };
+		91A32C5C14E6106B00B63453 /* SFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		91A32C3F14E6106A00B63453 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91A32C4714E6106B00B63453 /* UIKit.framework in Frameworks */,
+				91A32C4914E6106B00B63453 /* Foundation.framework in Frameworks */,
+				91A32C4B14E6106B00B63453 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		91A32C3714E6106A00B63453 = {
+			isa = PBXGroup;
+			children = (
+				91A32C4C14E6106B00B63453 /* soundfiel */,
+				91A32C4514E6106B00B63453 /* Frameworks */,
+				91A32C4314E6106B00B63453 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		91A32C4314E6106B00B63453 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91A32C4214E6106B00B63453 /* soundfiel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		91A32C4514E6106B00B63453 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91A32C4614E6106B00B63453 /* UIKit.framework */,
+				91A32C4814E6106B00B63453 /* Foundation.framework */,
+				91A32C4A14E6106B00B63453 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91A32C4C14E6106B00B63453 /* soundfiel */ = {
+			isa = PBXGroup;
+			children = (
+				91A32C5514E6106B00B63453 /* SFAppDelegate.h */,
+				91A32C5614E6106B00B63453 /* SFAppDelegate.m */,
+				91A32C5814E6106B00B63453 /* MainStoryboard.storyboard */,
+				91A32C5B14E6106B00B63453 /* SFViewController.h */,
+				91A32C5C14E6106B00B63453 /* SFViewController.m */,
+				91A32C4D14E6106B00B63453 /* Supporting Files */,
+			);
+			path = soundfiel;
+			sourceTree = "<group>";
+		};
+		91A32C4D14E6106B00B63453 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				91A32C4E14E6106B00B63453 /* soundfiel-Info.plist */,
+				91A32C4F14E6106B00B63453 /* InfoPlist.strings */,
+				91A32C5214E6106B00B63453 /* main.m */,
+				91A32C5414E6106B00B63453 /* soundfiel-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		91A32C4114E6106A00B63453 /* soundfiel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91A32C6014E6106B00B63453 /* Build configuration list for PBXNativeTarget "soundfiel" */;
+			buildPhases = (
+				91A32C3E14E6106A00B63453 /* Sources */,
+				91A32C3F14E6106A00B63453 /* Frameworks */,
+				91A32C4014E6106A00B63453 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = soundfiel;
+			productName = soundfiel;
+			productReference = 91A32C4214E6106B00B63453 /* soundfiel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91A32C3914E6106A00B63453 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 91A32C3C14E6106A00B63453 /* Build configuration list for PBXProject "soundfiel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 91A32C3714E6106A00B63453;
+			productRefGroup = 91A32C4314E6106B00B63453 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				91A32C4114E6106A00B63453 /* soundfiel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91A32C4014E6106A00B63453 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91A32C5114E6106B00B63453 /* InfoPlist.strings in Resources */,
+				91A32C5A14E6106B00B63453 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		91A32C3E14E6106A00B63453 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91A32C5314E6106B00B63453 /* main.m in Sources */,
+				91A32C5714E6106B00B63453 /* SFAppDelegate.m in Sources */,
+				91A32C5D14E6106B00B63453 /* SFViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		91A32C4F14E6106B00B63453 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91A32C5014E6106B00B63453 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		91A32C5814E6106B00B63453 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91A32C5914E6106B00B63453 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		91A32C5E14E6106B00B63453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		91A32C5F14E6106B00B63453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		91A32C6114E6106B00B63453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "soundfiel/soundfiel-Prefix.pch";
+				INFOPLIST_FILE = "soundfiel/soundfiel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		91A32C6214E6106B00B63453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "soundfiel/soundfiel-Prefix.pch";
+				INFOPLIST_FILE = "soundfiel/soundfiel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		91A32C3C14E6106A00B63453 /* Build configuration list for PBXProject "soundfiel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91A32C5E14E6106B00B63453 /* Debug */,
+				91A32C5F14E6106B00B63453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91A32C6014E6106B00B63453 /* Build configuration list for PBXNativeTarget "soundfiel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91A32C6114E6106B00B63453 /* Debug */,
+				91A32C6214E6106B00B63453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91A32C3914E6106A00B63453 /* Project object */;
+}
