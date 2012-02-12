@@ -15,22 +15,24 @@
 		91A32C5714E6106B00B63453 /* SFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A32C5614E6106B00B63453 /* SFAppDelegate.m */; };
 		91A32C5A14E6106B00B63453 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A32C5814E6106B00B63453 /* MainStoryboard.storyboard */; };
 		91A32C5D14E6106B00B63453 /* SFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A32C5C14E6106B00B63453 /* SFViewController.m */; };
+		91A32C6414E6115800B63453 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A32C6314E6115800B63453 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		91A32C4214E6106B00B63453 /* soundfiel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundfiel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A32C4214E6106B00B63453 /* soundfield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundfield.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91A32C4614E6106B00B63453 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		91A32C4814E6106B00B63453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		91A32C4A14E6106B00B63453 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		91A32C4E14E6106B00B63453 /* soundfiel-Info.plist */ = {isa = PBXFileReference; path = "soundfiel-Info.plist"; sourceTree = "<group>"; };
+		91A32C4E14E6106B00B63453 /* soundfield-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "soundfield-Info.plist"; sourceTree = "<group>"; };
 		91A32C5014E6106B00B63453 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		91A32C5214E6106B00B63453 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		91A32C5414E6106B00B63453 /* soundfiel-Prefix.pch */ = {isa = PBXFileReference; path = "soundfiel-Prefix.pch"; sourceTree = "<group>"; };
-		91A32C5514E6106B00B63453 /* SFAppDelegate.h */ = {isa = PBXFileReference; path = SFAppDelegate.h; sourceTree = "<group>"; };
+		91A32C5414E6106B00B63453 /* soundfield-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "soundfield-Prefix.pch"; sourceTree = "<group>"; };
+		91A32C5514E6106B00B63453 /* SFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFAppDelegate.h; sourceTree = "<group>"; };
 		91A32C5614E6106B00B63453 /* SFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFAppDelegate.m; sourceTree = "<group>"; };
 		91A32C5914E6106B00B63453 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		91A32C5B14E6106B00B63453 /* SFViewController.h */ = {isa = PBXFileReference; path = SFViewController.h; sourceTree = "<group>"; };
+		91A32C5B14E6106B00B63453 /* SFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFViewController.h; sourceTree = "<group>"; };
 		91A32C5C14E6106B00B63453 /* SFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFViewController.m; sourceTree = "<group>"; };
+		91A32C6314E6115800B63453 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A32C6414E6115800B63453 /* AVFoundation.framework in Frameworks */,
 				91A32C4714E6106B00B63453 /* UIKit.framework in Frameworks */,
 				91A32C4914E6106B00B63453 /* Foundation.framework in Frameworks */,
 				91A32C4B14E6106B00B63453 /* CoreGraphics.framework in Frameworks */,
@@ -50,7 +53,8 @@
 		91A32C3714E6106A00B63453 = {
 			isa = PBXGroup;
 			children = (
-				91A32C4C14E6106B00B63453 /* soundfiel */,
+				91A32C6314E6115800B63453 /* AVFoundation.framework */,
+				91A32C4C14E6106B00B63453 /* soundfield */,
 				91A32C4514E6106B00B63453 /* Frameworks */,
 				91A32C4314E6106B00B63453 /* Products */,
 			);
@@ -59,7 +63,7 @@
 		91A32C4314E6106B00B63453 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				91A32C4214E6106B00B63453 /* soundfiel.app */,
+				91A32C4214E6106B00B63453 /* soundfield.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,7 +78,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		91A32C4C14E6106B00B63453 /* soundfiel */ = {
+		91A32C4C14E6106B00B63453 /* soundfield */ = {
 			isa = PBXGroup;
 			children = (
 				91A32C5514E6106B00B63453 /* SFAppDelegate.h */,
@@ -84,16 +88,17 @@
 				91A32C5C14E6106B00B63453 /* SFViewController.m */,
 				91A32C4D14E6106B00B63453 /* Supporting Files */,
 			);
+			name = soundfield;
 			path = soundfiel;
 			sourceTree = "<group>";
 		};
 		91A32C4D14E6106B00B63453 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				91A32C4E14E6106B00B63453 /* soundfiel-Info.plist */,
+				91A32C4E14E6106B00B63453 /* soundfield-Info.plist */,
 				91A32C4F14E6106B00B63453 /* InfoPlist.strings */,
 				91A32C5214E6106B00B63453 /* main.m */,
-				91A32C5414E6106B00B63453 /* soundfiel-Prefix.pch */,
+				91A32C5414E6106B00B63453 /* soundfield-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -101,9 +106,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		91A32C4114E6106A00B63453 /* soundfiel */ = {
+		91A32C4114E6106A00B63453 /* soundfield */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91A32C6014E6106B00B63453 /* Build configuration list for PBXNativeTarget "soundfiel" */;
+			buildConfigurationList = 91A32C6014E6106B00B63453 /* Build configuration list for PBXNativeTarget "soundfield" */;
 			buildPhases = (
 				91A32C3E14E6106A00B63453 /* Sources */,
 				91A32C3F14E6106A00B63453 /* Frameworks */,
@@ -113,9 +118,9 @@
 			);
 			dependencies = (
 			);
-			name = soundfiel;
+			name = soundfield;
 			productName = soundfiel;
-			productReference = 91A32C4214E6106B00B63453 /* soundfiel.app */;
+			productReference = 91A32C4214E6106B00B63453 /* soundfield.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -126,7 +131,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 91A32C3C14E6106A00B63453 /* Build configuration list for PBXProject "soundfiel" */;
+			buildConfigurationList = 91A32C3C14E6106A00B63453 /* Build configuration list for PBXProject "soundfield" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -138,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				91A32C4114E6106A00B63453 /* soundfiel */,
+				91A32C4114E6106A00B63453 /* soundfield */,
 			);
 		};
 /* End PBXProject section */
@@ -237,9 +242,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "soundfiel/soundfiel-Prefix.pch";
-				INFOPLIST_FILE = "soundfiel/soundfiel-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "soundfiel/soundfield-Prefix.pch";
+				INFOPLIST_FILE = "soundfiel/soundfield-Info.plist";
+				PRODUCT_NAME = soundfield;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -248,9 +253,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "soundfiel/soundfiel-Prefix.pch";
-				INFOPLIST_FILE = "soundfiel/soundfiel-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "soundfiel/soundfield-Prefix.pch";
+				INFOPLIST_FILE = "soundfiel/soundfield-Info.plist";
+				PRODUCT_NAME = soundfield;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -258,7 +263,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		91A32C3C14E6106A00B63453 /* Build configuration list for PBXProject "soundfiel" */ = {
+		91A32C3C14E6106A00B63453 /* Build configuration list for PBXProject "soundfield" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				91A32C5E14E6106B00B63453 /* Debug */,
@@ -267,7 +272,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91A32C6014E6106B00B63453 /* Build configuration list for PBXNativeTarget "soundfiel" */ = {
+		91A32C6014E6106B00B63453 /* Build configuration list for PBXNativeTarget "soundfield" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				91A32C6114E6106B00B63453 /* Debug */,

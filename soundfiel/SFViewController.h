@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+
 @interface SFViewController : UIViewController
+
+@property (readwrite) Float64 graphSampleRate;
+- (void) setupAudioSession;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "SFViewController.h"
 
+
 @implementation SFViewController
 
 - (void)didReceiveMemoryWarning
@@ -21,6 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self init];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -55,6 +58,64 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (id) init {
+    NSLog(@"in init");
+    [self setupAudioSession];
+}
+
+- (void) setupAudioSession {
+    NSLog(@"in setupAudioSession");
+    AVAudioSession *mySession = [AVAudioSession sharedInstance];
+    
+    // Specify that this object is the delegate of the audio session, so that
+    //    this object's endInterruption method will be invoked when needed.
+    [mySession setDelegate: self];
+    
+    // Assign the Playback category to the audio session.
+    NSError *audioSessionError = nil;
+    [mySession setCategory: AVAudioSessionCategoryPlayback
+                     error: &audioSessionError];
+    
+    if (audioSessionError != nil) {
+        
+        NSLog (@"Error setting audio session category.");
+        return;
+    }
+    
+    // Request the desired hardware sample rate.
+    self.graphSampleRate = 44100.0;    // Hertz
+    
+    [mySession setPreferredHardwareSampleRate: self.graphSampleRate
+                                        error: &audioSessionError];
+    
+    if (audioSessionError != nil) {
+        
+        NSLog (@"Error setting preferred hardware sample rate.");
+        return;
+    }
+    
+    // Activate the audio session
+    [mySession setActive: YES
+                   error: &audioSessionError];
+    
+    if (audioSessionError != nil) {
+        
+        NSLog (@"Error activating audio session during initial setup.");
+        return;
+    }
+    
+    // Obtain the actual hardware sample rate and store it for later use in the audio processing graph.
+    //self.graphSampleRate = [mySession currentHardwareSampleRate];
+    
+    // Register the audio route change listener callback function with the audio session.
+    /* AudioSessionAddPropertyListener (
+                                     kAudioSessionProperty_AudioRouteChange,
+                                     audioRouteChangeListenerCallback,
+                                     self
+                                     );
+     */
 }
 
 @end
