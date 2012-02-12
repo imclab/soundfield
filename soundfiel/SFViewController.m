@@ -7,9 +7,14 @@
 //
 
 #import "SFViewController.h"
+#define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
 
 @implementation SFViewController
+
+@synthesize recorder;
+@synthesize recorderFilePath;
+@synthesize locationManager;
 
 - (void)didReceiveMemoryWarning
 {
@@ -22,7 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self init];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -60,62 +64,159 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (id) init {
-    NSLog(@"in init");
-    [self setupAudioSession];
+- (void)startStandardUpdates
+{
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == locationManager)
+        locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+    // Set a movement threshold for new events.
+    locationManager.distanceFilter = 500;
+    
+    [locationManager startUpdatingLocation];
 }
 
-- (void) setupAudioSession {
-    NSLog(@"in setupAudioSession");
-    AVAudioSession *mySession = [AVAudioSession sharedInstance];
-    
-    // Specify that this object is the delegate of the audio session, so that
-    //    this object's endInterruption method will be invoked when needed.
-    [mySession setDelegate: self];
-    
-    // Assign the Playback category to the audio session.
-    NSError *audioSessionError = nil;
-    [mySession setCategory: AVAudioSessionCategoryPlayback
-                     error: &audioSessionError];
-    
-    if (audioSessionError != nil) {
-        
-        NSLog (@"Error setting audio session category.");
-        return;
+// Delegate method from the CLLocationManagerDelegate protocol.
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    // If it's a relatively recent event, turn off updates to save power
+    NSDate* eventDate = newLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 15.0)
+    {
+        NSLog(@"latitude %+.6f, longitude %+.6f\n",
+              newLocation.coordinate.latitude,
+              newLocation.coordinate.longitude);
     }
-    
-    // Request the desired hardware sample rate.
-    self.graphSampleRate = 44100.0;    // Hertz
-    
-    [mySession setPreferredHardwareSampleRate: self.graphSampleRate
-                                        error: &audioSessionError];
-    
-    if (audioSessionError != nil) {
-        
-        NSLog (@"Error setting preferred hardware sample rate.");
-        return;
-    }
-    
-    // Activate the audio session
-    [mySession setActive: YES
-                   error: &audioSessionError];
-    
-    if (audioSessionError != nil) {
-        
-        NSLog (@"Error activating audio session during initial setup.");
-        return;
-    }
-    
-    // Obtain the actual hardware sample rate and store it for later use in the audio processing graph.
-    //self.graphSampleRate = [mySession currentHardwareSampleRate];
-    
-    // Register the audio route change listener callback function with the audio session.
-    /* AudioSessionAddPropertyListener (
-                                     kAudioSessionProperty_AudioRouteChange,
-                                     audioRouteChangeListenerCallback,
-                                     self
-                                     );
-     */
+    // else skip the event and process the next one.
 }
 
+- (void) startRecording{
+    
+    NSLog(@"starting recording");
+    UIBarButtonItem *stopButton = [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStyleBordered  target:self action:@selector(stopRecording)];
+    self.navigationItem.rightBarButtonItem = stopButton;
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    NSError *err = nil;
+    [audioSession setCategory :AVAudioSessionCategoryPlayAndRecord error:&err];
+    if(err){
+        NSLog(@"audioSession: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+        return;
+    }
+    [audioSession setActive:YES error:&err];
+    err = nil;
+    if(err){
+        NSLog(@"audioSession: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+        return;
+    }
+    
+    NSMutableDictionary* recordSetting = [[NSMutableDictionary alloc] init];
+    
+    [recordSetting setValue :[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey]; 
+    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+    
+    [recordSetting setValue :[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
+    [recordSetting setValue :[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
+    [recordSetting setValue :[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey];
+    
+    
+    
+    // Create a new dated file
+    NSDate *now = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSString *caldate = [now description];
+    recorderFilePath = [NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, caldate];
+    
+    NSURL *url = [NSURL fileURLWithPath:recorderFilePath];
+    err = nil;
+    recorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:&err];
+    if(!recorder){
+        NSLog(@"recorder: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle: @"Warning"
+                                   message: [err localizedDescription]
+                                  delegate: nil
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    //prepare to record
+    [recorder setDelegate:self];
+    [recorder prepareToRecord];
+    recorder.meteringEnabled = YES;
+    
+    BOOL audioHWAvailable = audioSession.inputIsAvailable;
+    if (! audioHWAvailable) {
+        UIAlertView *cantRecordAlert =
+        [[UIAlertView alloc] initWithTitle: @"Warning"
+                                   message: @"Audio input hardware not available"
+                                  delegate: nil
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil];
+        [cantRecordAlert show];
+        return;
+    }
+    
+    // start recording
+    [recorder recordForDuration:(NSTimeInterval) 10];
+    
+}
+
+- (void) stopRecording {
+    
+    NSLog(@"stopping recording");
+    [recorder stop];
+    
+    NSURL *url = [NSURL fileURLWithPath: recorderFilePath];
+    NSError *err = nil;
+    NSData *audioData = [NSData dataWithContentsOfFile:[url path] options: 0 error:&err];
+    if(!audioData)
+        NSLog(@"audio data: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+    //[editedObject setValue:[NSData dataWithContentsOfURL:url] forKey:editedFieldKey];   
+    
+    //[recorder deleteRecording];
+    
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    err = nil;
+    [fm removeItemAtPath:[url path] error:&err];
+    if(err)
+        NSLog(@"File Manager: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+    
+    
+    
+    UIBarButtonItem *startButton = [[UIBarButtonItem alloc] initWithTitle:@"Record" style:UIBarButtonItemStyleBordered  target:self action:@selector(startRecording)];
+    self.navigationItem.rightBarButtonItem = startButton;
+    
+}
+
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *) aRecorder successfully:(BOOL)flag
+{
+    
+    NSLog (@"audioRecorderDidFinishRecording:successfully:");
+    // your actions here
+    
+}
+
+- (IBAction)recordButton:(id)sender {
+    [self startRecording];
+}
+
+- (IBAction)stopButton:(id)sender {
+    [self stopRecording];
+}
+
+- (IBAction)startLocation:(id)sender {
+    [self startStandardUpdates];
+}
 @end

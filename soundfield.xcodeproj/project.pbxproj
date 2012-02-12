@@ -16,6 +16,7 @@
 		91A32C5A14E6106B00B63453 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A32C5814E6106B00B63453 /* MainStoryboard.storyboard */; };
 		91A32C5D14E6106B00B63453 /* SFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A32C5C14E6106B00B63453 /* SFViewController.m */; };
 		91A32C6414E6115800B63453 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A32C6314E6115800B63453 /* AVFoundation.framework */; };
+		91B2E3D514E8850200417A8F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B2E3D414E8850200417A8F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		91A32C5B14E6106B00B63453 /* SFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFViewController.h; sourceTree = "<group>"; };
 		91A32C5C14E6106B00B63453 /* SFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFViewController.m; sourceTree = "<group>"; };
 		91A32C6314E6115800B63453 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		91B2E3D414E8850200417A8F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B2E3D514E8850200417A8F /* CoreLocation.framework in Frameworks */,
 				91A32C6414E6115800B63453 /* AVFoundation.framework in Frameworks */,
 				91A32C4714E6106B00B63453 /* UIKit.framework in Frameworks */,
 				91A32C4914E6106B00B63453 /* Foundation.framework in Frameworks */,
@@ -53,6 +56,7 @@
 		91A32C3714E6106A00B63453 = {
 			isa = PBXGroup;
 			children = (
+				91B2E3D414E8850200417A8F /* CoreLocation.framework */,
 				91A32C6314E6115800B63453 /* AVFoundation.framework */,
 				91A32C4C14E6106B00B63453 /* soundfield */,
 				91A32C4514E6106B00B63453 /* Frameworks */,
@@ -279,6 +283,7 @@
 				91A32C6214E6106B00B63453 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

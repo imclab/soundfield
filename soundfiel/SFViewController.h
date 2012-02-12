@@ -10,10 +10,17 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface SFViewController : UIViewController
 
-@property (readwrite) Float64 graphSampleRate;
+@property (nonatomic,strong) AVAudioRecorder* recorder;
+@property (nonatomic,strong) NSString* recorderFilePath;
+@property (nonatomic,strong) CLLocationManager* locationManager;
+
 - (void) setupAudioSession;
+- (IBAction)recordButton:(id)sender;
+- (IBAction)stopButton:(id)sender;
+- (IBAction)startLocation:(id)sender;
 
 @end
