@@ -8,7 +8,9 @@
 
 #import "SFViewController.h"
 #define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
-
+#define ACCESS_KEY_ID @"AKIAJ7FGFR5M3JKA76IA"
+#define SECRET_KEY @"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"
+#import <AWSiOSSDK/S3/AmazonS3Client.h>
 
 @implementation SFViewController
 
@@ -95,6 +97,31 @@
               newLocation.coordinate.longitude);
     }
     // else skip the event and process the next one.
+}
+
+- (void) doSync {
+    // Initial the S3 Client.
+    AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+    
+    @try {
+        // Set the content type so that the browser will treat the URL as an image.
+        S3ResponseHeaderOverrides *override = [[S3ResponseHeaderOverrides alloc] init];
+        override.contentType = @"image/jpeg";
+        
+        // Create the picture bucket.
+        // [s3 createBucket:[[[S3CreateBucketRequest alloc] initWithName:[Constants pictureBucket]] autorelease]];
+        
+        // Upload image data.  Remember to set the content type.
+        // S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:PICTURE_NAME inBucket:[Constants pictureBucket]];
+        // por.contentType = @"image/jpeg";
+        // por.data        = imageData;
+        
+        // Put the image data into the specified s3 bucket and object.
+        // [s3 putObject:por];
+    }
+    @catch (AmazonClientException *exception) {
+        // [Constants showAlertMessage:exception.message withTitle:@"Browser Error"];
+    }
 }
 
 - (void) startRecording{
